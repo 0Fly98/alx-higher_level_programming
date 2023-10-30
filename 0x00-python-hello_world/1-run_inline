@@ -1,6 +1,2 @@
 #!/bin/bash
-
-# This is a Bash script that executes a Python one-liner
-# The following line executes a Python one-liner. 
-
 python3 -c "$PYCODE"
