@@ -1,7 +1,2 @@
-#!/usr/bin/python3
-import os
-import subprocess
-
-pycode = os.getenv('PYCODE')
-subprocess.call(["python3", "-c", pycode])
-
+#!/bin/bash
+python3 -c "$PYCODE"
