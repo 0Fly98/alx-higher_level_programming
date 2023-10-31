@@ -1,9 +1,5 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10, 10)
-descriptions = {
-    number > 0: f"{number:d} is positive",
-    number == 0: f"{number:d} is zero",
-    number < 0: f"{number:d} is negative"
-}
-print(descriptions[True])
+sign = "positive" if number > 0 else "zero" if number == 0 else "negative"
+print("{} is {}".format(number, sign))
