@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 import random
+
 number = random.randint(-10, 10)
-sign = "positive" if number > 0 else "zero" if number == 0 else "negative"
-print("{} is {}".format(number, sign))
+signs = {1: "positive", 0: "zero", -1: "negative"}
+
+print(f"{number:d} is {signs[number//abs(number) if number else 0]}")
