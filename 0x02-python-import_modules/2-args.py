@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# Prints the number of and the list of its arguments
 import sys
 import argparse
 
