@@ -1,19 +1,23 @@
 #!/usr/bin/python3
-#  Prints the number of and the list of its arguments
-if __name__ == "__main__":
-    import sys
+# Prints the number of and the list of its arguments
+import sys
+import argparse
 
-    arg = sys.argv
-    size = len(arg) - 1
+parser = argparse.ArgumentParser(description="Prints the number of and the list of its arguments")
+parser.add_argument("args", nargs="*", help="The arguments to print")
+arguments = parser.parse_args()
 
-    if size > 1:
-        print("{} arguments:".format(size))
-        for i in range(1, size + 1):
-            print("{}: {}".format(i, arg[i]))
+size = len(arguments.args)
 
-    elif size == 0:
-        print("{} arguments.".format(size))
+if size > 1:
+    print(f"{size} arguments:")
+    for i, arg in enumerate(arguments.args, start=1):
+        print(f"{i}: {arg}")
 
-    else:
-        print("{} argument:".format(size))
-        print("{}: {}".format(size, arg[1]))
+elif size == 0:
+    print(f"{size} arguments.")
+    sys.exit()
+
+else:
+    print(f"{size} argument:")
+    print(f"{size}: {arguments.args[0]}")
