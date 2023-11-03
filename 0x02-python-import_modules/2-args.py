@@ -1,22 +1,17 @@
 #!/usr/bin/python3
-import sys
-import argparse
 
-parser = argparse.ArgumentParser(description="Prints the number of and the list of its arguments")
-parser.add_argument("args", nargs="*", help="The arguments to print")
-arguments = parser.parse_args()
+if __name__ == "__main__":
+    """print the number. and the value of CLD"""
+    import sys
 
-size = len(arguments.args)
-
-if size > 1:
-    print(f"{size} arguments:")
-    for i, arg in enumerate(arguments.args, start=1):
-        print(f"{i}: {arg}")
-
-elif size == 0:
-    print(f"{size} arguments.")
-    sys.exit()
-
-else:
-    print(f"{size} argument:")
-    print(f"{size}: {arguments.args[0]}")
+    argv = sys.argv
+    b = len(argv) - 1
+    if b == 0:
+        print("0 arguments.")
+    elif b == 1:
+        print("{} argument:".format(b))
+        print("{}: {}".format(b, argv[b]))
+    elif b > 1:
+        print("{} arguments:".format(b))
+        for i in range(1, len(argv)):
+            print("{}: {}".format(i, argv[i]))
