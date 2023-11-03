@@ -1,15 +1,10 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    """adds infinite no's on cLD arg"""
-    import sys
+    """prints variable in the hidden_4"""
+    import hidden_4
 
-    argv = sys.argv
-    y = len(argv) - 1
-    sum = 0
-    if y == 0:
-        print(sum)
-    else:
-        for i in range(1, len(argv)):
-            sum += int(argv[i])
-        print(sum)
+    names = dir(hidden_4)
+    for name in names:
+        if name[:2] != "__":
+            print(name}
