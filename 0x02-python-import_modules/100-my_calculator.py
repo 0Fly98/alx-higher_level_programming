@@ -1,24 +1,27 @@
 #!/usr/bin/python3
+
 if __name__ == "__main__":
-    from sys import argv
-    from calculator_1 import add, sub, mul, div
-    argc = len(argv)
-    if argc != 4:
-        print('Usage: {} <a> <operator> <b>'.format(argv[0]))
-        exit(1)
-    ops = {
-        '+': add,
-        '-': sub,
-        '*': mul,
-        '/': div
-    }
-    if argv[2] in ops:
-        num1 = int(argv[1])
-        num2 = int(argv[3])
-        op = ops[argv[2]]
-        result = op(num1, num2)
-        print('{:d} {:s} {:d} = {:d}'.format(num1, argv[2], num2, result))
+    """updates the 1-calculator to gets CLD"""
+    import sys
+    from calculator_1 import add, mul, sub, div
+
+    if len(sys.argv) - 1 != 3:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+        sys.exit(1)
+    signs = ["*", "+", "-", "/"]
+    argv = sys.argv
+    x = argv[1]
+    y = argv[2]
+    z = argv[3]
+    if y not in signs:
+        print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
     else:
-        print('Unknown operator. Available operators: +, -, * and /')
-        exit(1)
-    exit(0)
+        if argv[2] == '+':
+            print("{} {} {} = {}".format(x, y, z, add(int(x), int(z))))
+        elif argv[2] == "*":
+            print("{} {} {} = {}".format(x, y, z, mul(int(x), int(z))))
+        elif argv[2] == '/':
+            print("{} {} {} = {}".format(x, y, z, div(int(x), int(z))))
+        elif argv[2] == '-':
+            print("{} {} {} = {}".format(x, y, z, sub(int(x), int(z))))
