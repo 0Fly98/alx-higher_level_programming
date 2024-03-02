@@ -1,13 +1,18 @@
 #!/usr/bin/python3
-from urllib import request, error
-from sys import argv
+"""
+request a body if error display statue code
+"""
 
+if __name__ == '__main__':
+    import urllib.request
+    import urllib.error
+    import sys
+    url = sys.argv[1]
 
-if __name__ == "__main__":
-
+    req = urllib.request.Request(url)
     try:
-        with request.urlopen(argv[1]) as response:
-            res = response.read()
-            print(res.decode('utf-8'))
-    except error.HTTPError as e:
+        with urllib.request.urlopen(req) as response:
+            info = response.read()
+            print(info.decode("ascii"))
+    except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
