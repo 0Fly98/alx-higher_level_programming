@@ -1,10 +1,15 @@
 #!/usr/bin/python3
-import urllib.request
+"""
+fetch holberton /statue page
+"""
 
-with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as response:
-    data = response.read()
+if __name__ == '__main__':
+    import urllib.request
+    req = urllib.request.Request('https://intranet.hbtn.io/status')
+    with urllib.request.urlopen(req) as response:
+        html = response.read()
+
     print("Body response:")
-    print(f"\t- type: <class '{type(data)}'>")
-    print(f"\t- content: {data}")
-    print(f"\t- utf8 content: {data.decode('utf-8')}")
-
+    print("\t- type: {}".format(html.__class__))
+    print("\t- content: {}".format(html))
+    print("\t- utf8 content: {}".format(html.decode('ascii')))
