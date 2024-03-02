@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-fetch holberton /statue page
-"""
+fetch holberton /statue pages """
 
 if __name__ == '__main__':
     import urllib.request

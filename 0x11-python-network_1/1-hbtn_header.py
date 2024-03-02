@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-from urllib import request
-import sys
+"""
+fetch X-Request-Id from header response with url
+introduced as arguments """
 
+if __name__ == '__main__':
+    import urllib.request
+    import sys
+    with urllib.request.urlopen(sys.argv[1]) as response:
+        content = response.getheader('X-Request-Id')
 
-if __name__ == "__main__":
-    url = sys.argv[1]
-    with request.urlopen(url) as response:
-        headers = response.info()
-        if headers['X-Request-Id']:
-            print(headers['X-Request-Id'])
+    print(content)
