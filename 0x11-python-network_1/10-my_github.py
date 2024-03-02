@@ -1,14 +1,20 @@
 #!/usr/bin/python3
-import requests
-from sys import argv
 
-if __name__ == "__main__":
+"""
+takes your GitHub credentials (username and password)
+and uses
+the GitHub API to display your id
+"""
 
-    res = requests.get("https://api.github.com/user", auth=(argv[1], argv[2]))
-
+if __name__ == '__main__':
+    import sys
+    import requests
+    url = "https://api.github.com/user"
+    username = sys.argv[1]
+    password = sys.argv[2]
+    info = (username, password)
+    r = requests.get(url, auth=info)
     try:
-        obj = res.json()
-        _id = obj.get('id')
-        print(_id)
-    except:
-        print("None")
+        print(r.json()['id'])
+    except Exception:
+        print('None')
